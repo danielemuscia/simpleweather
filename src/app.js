@@ -30,7 +30,7 @@ const popupCity = document.getElementById('popup-city')
 let icons = {
     sunny: 'Assets/sunny-icon.svg',
     cloudy: 'Assets/cloud-icon.svg',
-    rainy: 'Assets/Rain icon.svg',
+    rainy: 'Assets/rain-icon.svg',
     thunderstorm: 'Assets/thunderstorm-icon.svg',
     snow: 'Assets/snow-icon.svg',
     mist: 'Assets/mist-icon.svg',
@@ -159,8 +159,8 @@ const clearAspect = () => {
     if (weather.time > weather.sunrise && weather.time < weather.sunset) {
         mainIcon.src = icons.sunny;
         document.body.style.backgroundColor = '#83E3EB';
-        document.body.style.backgroundImage = `url('Assets/BG top left.svg')`;
-        logo.src = 'Assets/Logo.svg';
+        document.body.style.backgroundImage = `url('Assets/bg-top-left.svg')`;
+        logo.src = 'Assets/logo.svg';
         popupMainIcon.src = icons.sunny;
         popup.style.backgroundColor = 'rgb(255, 255, 255)';
         infoButton.onmouseover = () => {
@@ -172,8 +172,8 @@ const clearAspect = () => {
     } else {
         mainIcon.src = icons.moon;
         document.body.style.backgroundColor = '#003478';
-        document.body.style.backgroundImage = `url('Assets/BG top left.svg')`;
-        logo.src = 'Assets/Logo.svg';
+        document.body.style.backgroundImage = `url('Assets/bg-top-left.svg')`;
+        logo.src = 'Assets/logo.svg';
         popupMainIcon.src = icons.moon;
         popup.style.backgroundColor = 'rgb(204, 204, 204)';
         infoButton.onmouseover = () => {
@@ -192,8 +192,8 @@ const cloudAspect = () =>{
     suggestionsToday.innerHTML = sentences.clouds[Math.floor(Math.random()*2)];
     mainIcon.src = icons.cloudy;
     document.body.style.backgroundColor = '#C1BEBA';
-    document.body.style.backgroundImage = `url('Assets/BG top left - cloud-snow.svg')`;
-    logo.src = 'Assets/Logo snow-cloud.svg';
+    document.body.style.backgroundImage = `url('Assets/bg-top-left-cloud-snow.svg')`;
+    logo.src = 'Assets/logo-snow-cloud.svg';
     popupMainIcon.src = icons.cloudy;
     popup.style.backgroundColor = 'rgb(204, 204, 204)';
     infoButton.onmouseover = () => {
@@ -207,8 +207,8 @@ const rainAspect = () => {
     suggestionsToday.innerHTML = sentences.rainy[Math.floor(Math.random()*2)];;
     mainIcon.src = icons.rainy;
     document.body.style.backgroundColor = '#696969';
-    document.body.style.backgroundImage = `url('Assets/BG top left - rain.svg')`;
-    logo.src = 'Assets/Logo.svg';
+    document.body.style.backgroundImage = `url('Assets/bg-top-left-rain.svg')`;
+    logo.src = 'Assets/logo.svg';
     popupMainIcon.src = icons.rainy;
     popup.style.backgroundColor = 'rgb(255, 255, 255)';
     infoButton.onmouseover = () => {
@@ -223,8 +223,8 @@ const thunderstormAspect = () => {
     suggestionsToday.innerHTML = sentences.thunderstorm[Math.floor(Math.random()*2)];
     mainIcon.src = icons.thunderstorm;
     document.body.style.backgroundColor = '#484745'
-    document.body.style.backgroundImage = `url('Assets/BG top left - thunderstorm.svg')`;
-    logo.src = 'Assets/Logo.svg';
+    document.body.style.backgroundImage = `url('Assets/bg-top-left-thunderstorm.svg')`;
+    logo.src = 'Assets/logo.svg';
     popupMainIcon.src = icons.thunderstorm;
     popup.style.backgroundColor = 'rgb(255, 255, 255)';
     infoButton.onmouseover = () => {
@@ -239,8 +239,8 @@ const snowAspect = () => {
     suggestionsToday.innerHTML = sentences.snow[Math.floor(Math.random()*2)];
     mainIcon.src = icons.snow;
     document.body.style.backgroundColor = '#C1BEBA';
-    document.body.style.backgroundImage = `url('Assets/BG top left - cloud-snow.svg')`;
-    logo.src = 'Assets/Logo snow-cloud.svg';
+    document.body.style.backgroundImage = `url('Assets/bg-top-left-cloud-snow.svg')`;
+    logo.src = 'Assets/logo-snow-cloud.svg';
     popupMainIcon.src = icons.snow;
     popup.style.backgroundColor = 'rgb(204, 204, 204)';
     infoButton.onmouseover = () => {
@@ -255,8 +255,8 @@ const mistAspect = () => {
     suggestionsToday.innerHTML = sentences.mist[0];
     mainIcon.src = icons.mist;
     document.body.style.backgroundColor = '#C1BEBA';
-    document.body.style.backgroundImage = `url('Assets/BG top left - cloud-snow.svg')`;
-    logo.src = 'Assets/Logo snow-cloud.svg';
+    document.body.style.backgroundImage = `url('Assets/bg-top-left-cloud-snow.svg')`;
+    logo.src = 'Assets/logo-snow-cloud.svg';
     popupMainIcon.src = icons.mist;
     popup.style.backgroundColor = 'rgb(204, 204, 204)';
     infoButton.onmouseover = () => {
