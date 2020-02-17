@@ -80,6 +80,7 @@ const getWeather = (lat, lon) => {
         return data;
     })
     .then(data => {
+        console.log(data)
         weather.temperature = Math.floor(data.main.temp - 273);
         weather.description = data.weather[0].main;
         weather.location = data.name;
@@ -113,9 +114,10 @@ const changeAspect = () => {
         thunderstormAspect()
     } else if (weather.description === 'Snow') {
         snowAspect()
-    } else if (weather.description === 'Mist' || weather.description === 'Drizzle') {
+    } else if (weather.description === 'Mist' || weather.description === 'Drizzle' || weather.description === 'Fog') {
         mistAspect()
     } else {
+        initAspect();
         suggestionsToday.innerHTML = `We don't know the condition in ${weather.location}.<br> Send us an email at simple@weather.com`
     }
 }
@@ -267,6 +269,17 @@ const mistAspect = () => {
     infoButton.onmouseleave = () => {
         infoButton.style.color = 'white';
     }
+}
+
+const initAspect = () => {
+    mainIcon.src = 'Assets/loading-icon.svg';
+    mainTemp.style.color = 'black';
+    suggestionsToday.style.color = 'black';
+    menuButton.src = 'Assets/select-city-black.svg'
+    document.body.style.backgroundColor = 'white';
+    document.body.style.backgroundImage = `url('Assets/bg-top-left-thunderstorm.svg')`;
+    infoButton.style.display = 'none';
+    inputText.style.border = '1px solid black'
 }
 
 
