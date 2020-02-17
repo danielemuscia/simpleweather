@@ -80,7 +80,6 @@ const getWeather = (lat, lon) => {
         return data
     })
     .then(data => {
-        console.log(data)
         weather.temperature = Math.floor(data.main.temp - 273);
         weather.description = data.weather[0].main;
         weather.location = data.name;
