@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Simple Weather</title>
+
+</head>
+<body>
+    <nav>
+        <img src="/Assets/Logo.svg" alt="" id="logo">
+        <a id="menu-button"><img src="/Assets/Select-your-city-icon.svg" alt="" id="menu-button"></a>
+        <form action="" id="form-city">
+            <input type="text" placeholder="Es. New York, US" id="city-input">
+            <button>GO!</button>
+        </form>
+    </nav>
+    <section id="main-today">
+        <img src="Assets/loading-icon.svg" alt="" id="main-icon">
+        <p id="main-temp">-</p>
+        <p id="suggestions-today">Our team is looking outside the window, give us a moment...</p>
+        <a id="more-info">More info</a>
+        <div id="popup">
+            <img src="Assets/cloud-icon.svg" alt="" id="main-popup-icon">
+            <h1 id="popup-city">City</h1>
+            <div id="temperature-section">
+                <div id="max-temp-section">
+                    <img src="Assets/max-temp-icon.svg" alt="" id="max-temp-icon">
+                    <p id="max-temp-text">22&deg;</p>
+                </div>
+                <div id="min-temp-section">
+                    <img src="Assets/min-temp-icon.svg" alt="" id="min-temp-icon">
+                    <p id="min-temp-text">22&deg;</p>
+                </div>
+            </div>
+            <div id="wind-section">
+                <img src="Assets/wind - black.svg" alt="" id="wind-icon">
+                <p id="wind-text">30 Km/h, 25&deg;</p>
+            </div>
+            <div id="humidity-section">
+                <img src="Assets/humiity-icon.svg" alt="" id="humidity-icon">
+                <p id="humidity-text">45%</p>
+            </div>
+        </div>
+        <div id="popup-bg"></div>   
+    </section>
+
+    <script src="dist/main.js"></script>
+</body>
+</html>

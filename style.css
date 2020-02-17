@@ -1,0 +1,313 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/*---General Style---*/
+body{
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    color: black;
+    background-color: white;
+    background-image: url(/Assets/BG\ top\ left\ -\ thunderstorm.svg);
+    background-repeat: no-repeat;
+    background-position-y: -356px;
+    background-position-x: -568px;
+}
+
+
+/*---Nav---*/
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 75px 140px 0 140px;
+}
+
+#logo {
+    height: 100px;
+}
+
+#menu-button{
+    cursor: pointer;
+    width: 120px;
+}
+
+/*---Main Today---*/
+#main-today{
+    text-align: center;
+    margin-top: 100px;
+}
+
+#main-today img{
+    width: 209px;
+}
+
+#main-temp{
+    font-size: 72px;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-bottom: 22px;
+}
+
+#suggestions-today{
+    font-size: 32px;
+    margin-bottom: 50px;
+}
+
+#more-info{
+    padding: 14px 57px;
+    height: 60px;
+    border: 1px solid rgba(255, 255, 255, 0.8);;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    display: none;
+    margin-bottom: 20px;
+}
+
+#more-info:hover, #more-info:focus {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #C1BEBB;
+}
+
+/*---select city---*/
+form{
+    display: none;
+}
+
+input{
+    width: 250px;
+    height: 50px;
+    font-size: 22px;
+    padding-left: 20px;
+    margin-right: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    opacity: 0.8;
+}
+
+input ::placeholder{
+    font-size: 22px;
+    color: #55555558;
+}
+
+button{
+    font-size: 18px;
+    font-weight: bold;
+    padding: 14px 57px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #2699FB;
+    letter-spacing: 1.2px;
+    cursor: pointer;
+}
+
+/*---popup---*/
+#popup-bg {
+    width: 100%;
+    background-color: rgb(255, 255, 255, 0.6);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+#popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 34%;
+    min-width: 500px;
+    height: 60%;
+    min-height: 500px;
+    background-color: rgb(204, 204, 204);
+    border-radius: 10px;
+    z-index: 3;
+    color: #000000;
+    font-size: 27px;
+    display: none;
+    animation: up 0.5s;
+}
+
+@keyframes up{
+    from { transform: translate(-50%, -30%) }
+    to { transform: translate(-50%, -50%) }
+}
+
+#main-popup-icon {
+    position: absolute;
+    top: -25%;
+    transform: translate(-50%, 0);
+    width: 209px;
+}
+
+#popup h1{
+    margin-top: 80px;
+    font-size: 48px;
+    color: black;
+}
+
+#temperature-section {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 63px;
+}
+
+#max-temp-section, #min-temp-section {
+    display: flex;
+    align-items: center;
+}
+
+#max-temp-icon, #min-temp-icon{
+    width: 49px !important;
+    margin-right: 12px;
+}
+
+#wind-section, #humidity-section{
+    display: flex;
+    align-items: center;
+    width: 50%;
+    margin: 70px auto;
+    justify-content: space-between;
+}
+
+#wind-icon {
+    width: 79px !important;
+}
+
+#humidity-icon {
+    width: 42px !important;
+}
+
+@media only screen and (max-width: 1024px) {
+    body {
+        background-position-x: -880px;
+    }
+
+    nav {
+        padding: 30px 5% 0 5%;
+    }
+
+    #logo {
+        height: 70px;
+    }
+
+    #menu-button {
+        height: 80px;
+        width: 80px;
+    }
+
+    form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    input{
+        width: 150px;
+        height: 40px;
+        font-size: 14px;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    button{
+        padding: 10px 20px;
+        height: 40px;
+        width: 80px;
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    /*---main section---*/
+    #main-today img{
+        width: 100px;
+    }
+
+    #main-today{
+        text-align: center;
+        margin-top: 80px;
+    }
+    
+    #main-temp{
+        font-size: 60px;
+    }
+    
+    #suggestions-today{
+        font-size: 22px;
+    }
+    
+    #more-info{
+        padding: 10px 30px;
+    }
+
+    /*---popup---*/
+
+    #popup {
+        min-width: 0;
+        width: 90%;
+        height: 60%;
+        min-height: 500px;
+        font-size: 20px;
+    }
+
+    #main-popup-icon {
+        position: static;
+        margin-top: 20px;
+        transform: translate(0, 0);
+    }
+
+    #popup h1{
+        margin-top: 20px;
+        font-size: 22px;
+        margin-bottom: 40px;
+    }
+
+    #temperature-section {
+        display: flex;
+        justify-content: space-between;
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    #max-temp-section, #min-temp-section {
+        display: flex;
+        align-items: center;
+    }
+
+    #max-temp-icon, #min-temp-icon{
+        width: 30px !important;
+        margin-right: 12px;
+    }
+
+    #wind-section, #humidity-section{
+        display: flex;
+        align-items: center;
+        width: 70%;
+        margin: 70px auto;
+        justify-content: space-between;
+    }
+
+    #wind-icon {
+        width: 50px !important;
+    }
+
+    #humidity-icon {
+        width: 30px !important;
+    }
+    
+}
+
+
+
