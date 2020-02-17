@@ -38,7 +38,7 @@ let icons = {
 }
 
 //empty object to store sentences once location name is available from api
-let sentences =  {}
+let sentences =  {};
 
 //empty object to store weather data once available from api
 let weather = {};
@@ -57,9 +57,9 @@ if ('geolocation' in navigator){
     navigator.geolocation.getCurrentPosition(position => {
         lon = position.coords.longitude;
         lat = position.coords.latitude;
-        getWeather(lat, lon)
+        getWeather(lat, lon);
     }, () => {
-        suggestionsToday.innerHTML = 'Hey, we have no idea about your position 😅<br> If you still love us, select your city manually'
+        suggestionsToday.innerHTML = 'Hey, we have no idea about your position 😅<br> If you still love us, select your city manually';
     })
 } else{
     getWeather(59,10);
@@ -67,17 +67,17 @@ if ('geolocation' in navigator){
 
 //get data based on input or lon and lat
 const getWeather = (lat, lon) => {
-    let urlToFetch
+    let urlToFetch;
     if(inputValue === undefined){
         urlToFetch = `${url}?lat=${lat}&lon=${lon}&APPID=${apiKey}`;
     } else{
-        urlToFetch = `${url}?q=${inputValue}&APPID=${apiKey}`
+        urlToFetch = `${url}?q=${inputValue}&APPID=${apiKey}`;
     }
     
     fetch(urlToFetch)
     .then(response => {
-        let data = response.json()
-        return data
+        let data = response.json();
+        return data;
     })
     .then(data => {
         weather.temperature = Math.floor(data.main.temp - 273);
@@ -96,8 +96,8 @@ const getWeather = (lat, lon) => {
         sentences.rainy = [`Today is rainy in ${weather.location}<br>Take your 🌂 and get things done!`, `Today is rainy in ${weather.location}<br>It's a rainy day 🎶`];
         sentences.thunderstorm = [`Today there is a thunderstorm in ${weather.location}<br>If you go out you will get back wet...`, `Today there is a thunderstorm in ${weather.location}<br>Bring inside your clotheshorse 👕`];
         sentences.snow = [`Today is snowing in ${weather.location}<br>Wear your 🧤 and make a ☃️`, `Today is snowing in ${weather.location}<br>Turn on Netflix and make a cup of tea ☕️`];
-        sentences.mist = [`Today is foggy in ${weather.location}<br>Don't lose yourself...`]
-        displayWeather()
+        sentences.mist = [`Today is foggy in ${weather.location}<br>Don't lose yourself...`];
+        displayWeather();
     })
 };
 
@@ -122,27 +122,29 @@ const changeAspect = () => {
 
 const displayWeather = () => {
     mainTemp.innerHTML = `${weather.temperature}&deg`;
-    mainTemp.style.color = 'white'
-    suggestionsToday.style.color = 'white'
+    mainTemp.style.color = 'white';
+    menuButton.src = 'Assets/select-your-city-icon.svg';
+    suggestionsToday.style.color = 'white';
     infoButton.style.display = 'initial';
+    inputText.style.border = 'none'
     popupCity.innerHTML = weather.location
     popupMaxTemp.innerHTML = `${weather.maxTempToday}&deg`;
     popupMinTemp.innerHTML = `${weather.minTempToday}&deg`;
     popupWind.innerHTML = `${weather.windSpeed} Km/h`;
     popupHumidity.innerHTML = `${weather.humidity}%`;
-    changeAspect()
+    changeAspect();
 }
 
 //display input field
 menuButton.addEventListener('click', () => {
-    menuButton.style.display = 'none'
-    formCity.style.display = 'flex'
+    menuButton.style.display = 'none';
+    formCity.style.display = 'flex';
 })
 
 formCity.addEventListener('submit', (event) => {
     event.preventDefault();
     inputValue = inputText.value;
-    getWeather()
+    getWeather();
     menuButton.style.display = 'block';
     formCity.style.display = 'none';
 })
@@ -164,10 +166,10 @@ const clearAspect = () => {
         popupMainIcon.src = icons.sunny;
         popup.style.backgroundColor = 'rgb(255, 255, 255)';
         infoButton.onmouseover = () => {
-            infoButton.style.color = '#83E3EB'
+            infoButton.style.color = '#83E3EB';
         }
         infoButton.onmouseleave = () => {
-            infoButton.style.color = 'white'
+            infoButton.style.color = 'white';
         }
     } else {
         mainIcon.src = icons.moon;
@@ -177,10 +179,10 @@ const clearAspect = () => {
         popupMainIcon.src = icons.moon;
         popup.style.backgroundColor = 'rgb(204, 204, 204)';
         infoButton.onmouseover = () => {
-            infoButton.style.color = '#003478'
+            infoButton.style.color = '#003478';
         }
         infoButton.onmouseleave = () => {
-            infoButton.style.color = 'white'
+            infoButton.style.color = 'white';
         }
     }
 
@@ -200,7 +202,7 @@ const cloudAspect = () =>{
         infoButton.style.color = '#C1BEBA';
     }
     infoButton.onmouseleave = () => {
-        infoButton.style.color = 'white'
+        infoButton.style.color = 'white';
     }
 }
 const rainAspect = () => {
@@ -212,26 +214,26 @@ const rainAspect = () => {
     popupMainIcon.src = icons.rainy;
     popup.style.backgroundColor = 'rgb(255, 255, 255)';
     infoButton.onmouseover = () => {
-        infoButton.style.color = '#696969'
+        infoButton.style.color = '#696969';
     }
     infoButton.onmouseleave = () => {
-        infoButton.style.color = 'white'
+        infoButton.style.color = 'white';
     }
 }
 
 const thunderstormAspect = () => {
     suggestionsToday.innerHTML = sentences.thunderstorm[Math.floor(Math.random()*2)];
     mainIcon.src = icons.thunderstorm;
-    document.body.style.backgroundColor = '#484745'
+    document.body.style.backgroundColor = '#484745';
     document.body.style.backgroundImage = `url('Assets/bg-top-left-thunderstorm.svg')`;
     logo.src = 'Assets/logo.svg';
     popupMainIcon.src = icons.thunderstorm;
     popup.style.backgroundColor = 'rgb(255, 255, 255)';
     infoButton.onmouseover = () => {
-        infoButton.style.color = '#696969'
+        infoButton.style.color = '#696969';
     }
     infoButton.onmouseleave = () => {
-        infoButton.style.color = 'white'
+        infoButton.style.color = 'white';
     }
 }
 
@@ -244,10 +246,10 @@ const snowAspect = () => {
     popupMainIcon.src = icons.snow;
     popup.style.backgroundColor = 'rgb(204, 204, 204)';
     infoButton.onmouseover = () => {
-        infoButton.style.color = '#C1BEBA'
+        infoButton.style.color = '#C1BEBA';
     }
     infoButton.onmouseleave = () => {
-        infoButton.style.color = 'white'
+        infoButton.style.color = 'white';
     }
 }
 
@@ -260,10 +262,10 @@ const mistAspect = () => {
     popupMainIcon.src = icons.mist;
     popup.style.backgroundColor = 'rgb(204, 204, 204)';
     infoButton.onmouseover = () => {
-        infoButton.style.color = '#C1BEBA'
+        infoButton.style.color = '#C1BEBA';
     }
     infoButton.onmouseleave = () => {
-        infoButton.style.color = 'white'
+        infoButton.style.color = 'white';
     }
 }
 

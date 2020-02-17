@@ -79,19 +79,19 @@ form{
     display: none;
 }
 
-input{
+#city-input{
     width: 250px;
     height: 50px;
     font-size: 22px;
     padding-left: 20px;
     margin-right: 20px;
-    border: none;
+    border: 2px solid black;
     border-radius: 5px;
     background-color: white;
     opacity: 0.8;
 }
 
-input ::placeholder{
+#city-input ::placeholder{
     font-size: 22px;
     color: #55555558;
 }
