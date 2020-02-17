@@ -113,7 +113,7 @@ const changeAspect = () => {
         thunderstormAspect()
     } else if (weather.description === 'Snow') {
         snowAspect()
-    } else if (weather.description === 'Mist') {
+    } else if (weather.description === 'Mist' || weather.description === 'Drizzle') {
         mistAspect()
     } else {
         suggestionsToday.innerHTML = `We don't know the condition in ${weather.location}.<br> Send us an email at simple@weather.com`
