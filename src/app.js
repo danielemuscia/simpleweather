@@ -1,3 +1,4 @@
+var _ = require('lodash')
 //OpenWeather info
 const apiKey = process.env.APP_KEY;
 const url = 'https://api.openweathermap.org/data/2.5/weather';
@@ -81,16 +82,16 @@ const getWeather = (lat, lon) => {
     })
     .then(data => {
         console.log(data)
-        weather.temperature = Math.floor(data.main.temp - 273);
-        weather.description = data.weather[0].main;
-        weather.location = data.name;
-        weather.maxTempToday = Math.floor(data.main.temp_max - 273);
-        weather.minTempToday = Math.floor(data.main.temp_min -273);
-        weather.windSpeed = data.wind.speed;
-        weather.humidity = data.main.humidity;
-        weather.time = getDate(data.dt * 1000);
-        weather.sunrise = getDate(data.sys.sunrise * 1000);
-        weather.sunset = getDate(data.sys.sunset * 1000);
+        weather.temperature = Math.floor(_.get(data, 'main.temp', 'Error') - 273);
+        weather.description = _.get(data, 'weather[0].main', 'Error');
+        weather.location = _.get(data, 'name', 'Error');
+        weather.maxTempToday = Math.floor(_.get(data, 'main.temp_max', 'Error') - 273);
+        weather.minTempToday = Math.floor(_.get(data, 'main.temp_min', 'Error') - 273);
+        weather.windSpeed = _.get(data, 'wind.speed', 'Error');
+        weather.humidity = _.get(data, 'main.humidity', 'Error');
+        weather.time = getDate(_.get(data, 'dt', 'Error')*1000);
+        weather.sunrise = getDate(_.get(data, 'sys.sunrise', 'Error') * 1000);
+        weather.sunset = getDate(_.get(data, 'sys.sunset', 'Error') * 1000);;
     }).then(() => {
         sentences.sunny = [`Today the sky is clear in ${weather.location}! <br>You can leave the 🌂 at home.`, `Today the sky is clear in ${weather.location}!<br>Enjoy your day 🙌🏻`];
         sentences.clouds = [`Today is cloudy in ${weather.location}...<br>Take the ☂️, or do not take the 🌂, that is the question...`, `Today is cloudy in ${weather.location}...<br>Leave the 🕶 at home`];
